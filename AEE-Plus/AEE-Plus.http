@@ -1,0 +1,6 @@
+@AEE_Plus_HostAddress = http://localhost:5201
+
+GET {{AEE_Plus_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
