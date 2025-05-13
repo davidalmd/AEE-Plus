@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35828.75 d17.13
+VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AEE-Plus", "AEE-Plus\AEE-Plus.csproj", "{3AB57BD3-DDBE-4984-841D-CC2E8BC11C82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AEE-Plus.Application", "AEE-Plus.Application\AEE-Plus.Application.csproj", "{D39D41F8-10CD-4BC8-A5A2-6DA84F22F661}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AEE-Plus.API", "AEE-Plus.API\AEE-Plus.API.csproj", "{118F9D60-5E78-E7E1-2590-A88E97601D61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AEE-Plus.Domain", "AEE-Plus.Domain\AEE-Plus.Domain.csproj", "{6AD10BF3-1763-441B-A214-59134D85CAAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AEE-Plus.Infrastructure", "AEE-Plus.Infrastructure\AEE-Plus.Infrastructure.csproj", "{45831032-F6B9-4A8C-81A6-D8EDE9CC9B87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AEE-Plus.Tests", "AEE-Plus.Tests\AEE-Plus.Tests.csproj", "{53E6FDAC-492D-48F1-9A79-CCEBEC3ACAB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3AB57BD3-DDBE-4984-841D-CC2E8BC11C82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AB57BD3-DDBE-4984-841D-CC2E8BC11C82}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AB57BD3-DDBE-4984-841D-CC2E8BC11C82}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AB57BD3-DDBE-4984-841D-CC2E8BC11C82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D39D41F8-10CD-4BC8-A5A2-6DA84F22F661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39D41F8-10CD-4BC8-A5A2-6DA84F22F661}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39D41F8-10CD-4BC8-A5A2-6DA84F22F661}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39D41F8-10CD-4BC8-A5A2-6DA84F22F661}.Release|Any CPU.Build.0 = Release|Any CPU
+		{118F9D60-5E78-E7E1-2590-A88E97601D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118F9D60-5E78-E7E1-2590-A88E97601D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118F9D60-5E78-E7E1-2590-A88E97601D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{118F9D60-5E78-E7E1-2590-A88E97601D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD10BF3-1763-441B-A214-59134D85CAAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD10BF3-1763-441B-A214-59134D85CAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD10BF3-1763-441B-A214-59134D85CAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD10BF3-1763-441B-A214-59134D85CAAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45831032-F6B9-4A8C-81A6-D8EDE9CC9B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45831032-F6B9-4A8C-81A6-D8EDE9CC9B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45831032-F6B9-4A8C-81A6-D8EDE9CC9B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45831032-F6B9-4A8C-81A6-D8EDE9CC9B87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E6FDAC-492D-48F1-9A79-CCEBEC3ACAB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E6FDAC-492D-48F1-9A79-CCEBEC3ACAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E6FDAC-492D-48F1-9A79-CCEBEC3ACAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E6FDAC-492D-48F1-9A79-CCEBEC3ACAB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
