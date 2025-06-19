@@ -1,4 +1,6 @@
-﻿using AEE_Plus.Domain.Entities.Turma;
+﻿using AEE_Plus.Domain.Entities.Aluno;
+using AEE_Plus.Domain.Entities.ProtocoloConduta;
+using AEE_Plus.Domain.Entities.Turma;
 using AEE_Plus.Domain.Entities.Usuario;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,6 +11,8 @@ public class AEEPlusDbContext(DbContextOptions<AEEPlusDbContext> options) : DbCo
 {
     public DbSet<UsuarioEntity> Usuarios { get; set; }
     public DbSet<TurmaEntity> Turmas { get; set; }
+    public DbSet<AlunoEntity> Alunos { get; set; }
+    public DbSet<ProtocoloCondutaEntity> ProtocolosConduta { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

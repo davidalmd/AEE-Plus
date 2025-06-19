@@ -5,7 +5,7 @@ namespace AEE_Plus.Domain.Entities.Usuario
 {
     public class UsuarioEntity
     {
-        public Guid Id { get; set; }
+        public long Id { get; set; }
         public string Nome { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Senha { get; set; } = string.Empty;
@@ -16,15 +16,15 @@ namespace AEE_Plus.Domain.Entities.Usuario
         // Propriedade de Navegação
          public virtual ICollection<TurmaEntity> Turmas { get; set; } = new List<TurmaEntity>();
 
-        public UsuarioEntity(Guid id, string nome, string email, string senha, PerfilUsuario perfil, StatusUsuario status, bool primeiroAcesso)
+        public UsuarioEntity(long id, string nome, string email, string senha, PerfilUsuario perfil, StatusUsuario status, bool primeiroAcesso)
         {
-            Id = id;
-            Nome = nome;
-            Email = email;
-            Senha = senha;
-            Perfil = perfil;
-            Status = status;
-            PrimeiroAcesso = primeiroAcesso;
+            this.Id = id;
+            this.Nome = nome;
+            this.Email = email;
+            this.Senha = senha;
+            this.Perfil = perfil;
+            this.Status = status;
+            this.PrimeiroAcesso = primeiroAcesso;
         }
     }
 }
