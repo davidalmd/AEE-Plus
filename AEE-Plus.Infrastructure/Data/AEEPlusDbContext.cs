@@ -1,4 +1,5 @@
 ﻿using AEE_Plus.Domain.Entities.Aluno;
+using AEE_Plus.Domain.Entities.CurriculoHabilidades;
 using AEE_Plus.Domain.Entities.ProtocoloConduta;
 using AEE_Plus.Domain.Entities.Turma;
 using AEE_Plus.Domain.Entities.Usuario;
@@ -13,6 +14,7 @@ public class AEEPlusDbContext(DbContextOptions<AEEPlusDbContext> options) : DbCo
     public DbSet<TurmaEntity> Turmas { get; set; }
     public DbSet<AlunoEntity> Alunos { get; set; }
     public DbSet<ProtocoloCondutaEntity> ProtocolosConduta { get; set; }
+    public DbSet<CurriculoHabilidadesEntity> CurriculosHabilidades { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

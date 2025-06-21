@@ -1,4 +1,5 @@
-﻿using AEE_Plus.Domain.Entities.Turma;
+﻿using AEE_Plus.Domain.Entities.CurriculoHabilidades;
+using AEE_Plus.Domain.Entities.Turma;
 using AEE_Plus.Domain.Enums;
 
 namespace AEE_Plus.Domain.Entities.Aluno;
@@ -16,6 +17,7 @@ public class AlunoEntity
 
     // Propriedade de Navegação
     public virtual TurmaEntity Turma { get; set; } = null!;
+    public virtual ICollection<CurriculoHabilidadesEntity> CurriculoHabilidades { get; set; } = new List<CurriculoHabilidadesEntity>();
 
     public AlunoEntity(long id, string nome, DateTime dataNascimento, SexoAluno sexo, string CID, string nomeMae, long idTurma)
     {
