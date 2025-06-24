@@ -1,4 +1,7 @@
-﻿using AEE_Plus.Domain.Entities.Turma;
+﻿using AEE_Plus.Domain.Entities.CodigoAcesso;
+using AEE_Plus.Domain.Entities.PranchaComunicacao;
+using AEE_Plus.Domain.Entities.ResponsavelAluno;
+using AEE_Plus.Domain.Entities.Turma;
 using AEE_Plus.Domain.Enums;
 
 namespace AEE_Plus.Domain.Entities.Usuario
@@ -14,7 +17,10 @@ namespace AEE_Plus.Domain.Entities.Usuario
         public bool PrimeiroAcesso { get; set; }
 
         // Propriedade de Navegação
-         public virtual ICollection<TurmaEntity> Turmas { get; set; } = new List<TurmaEntity>();
+        public virtual ICollection<TurmaEntity> Turmas { get; set; } = new List<TurmaEntity>();
+        public virtual PranchaComunicacaoEntity PranchaComunicacao { get; set; } = null!;
+        public virtual CodigoAcessoEntity CodigoAcesso { get; set; } = null!;
+        public virtual ICollection<ResponsavelAlunoEntity> AlunosResponsaveis { get; set; } = new List<ResponsavelAlunoEntity>();
 
         public UsuarioEntity(long id, string nome, string email, string senha, PerfilUsuario perfil, StatusUsuario status, bool primeiroAcesso)
         {

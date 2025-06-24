@@ -1,11 +1,11 @@
-﻿using AEE_Plus.Domain.Entities.ProtocoloConduta;
+﻿using AEE_Plus.Domain.Entities.PAEE;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AEE_Plus.Infrastructure.Data.PostgreSql.Configurations;
-public class ProtocoloCondutaConfiguration : IEntityTypeConfiguration<ProtocoloCondutaEntity>
+public class PaeeConfiguration : IEntityTypeConfiguration<PaeeEntity>
 {
-    public void Configure(EntityTypeBuilder<ProtocoloCondutaEntity> builder)
+    public void Configure(EntityTypeBuilder<PaeeEntity> builder)
     {
         builder.HasKey(p => p.Id);
 
@@ -20,7 +20,7 @@ public class ProtocoloCondutaConfiguration : IEntityTypeConfiguration<ProtocoloC
             .IsRequired();
 
         builder.HasOne(p => p.Aluno)
-            .WithOne(a => a.ProtocoloConduta)
-            .HasForeignKey<ProtocoloCondutaEntity>(p => p.IdAluno);
+               .WithOne(a => a.PAEE)
+               .HasForeignKey<PaeeEntity>(p => p.IdAluno);
     }
 }

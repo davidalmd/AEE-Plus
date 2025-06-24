@@ -3,6 +3,7 @@ using System;
 using AEE_Plus.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AEE_Plus.Infrastructure.Data.PostgreSql.Migrations
 {
     [DbContext(typeof(AEEPlusDbContext))]
-    partial class AEEPlusDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250624033152_AddCodigoAcessoAndPrancha")]
+    partial class AddCodigoAcessoAndPrancha
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,7 +99,7 @@ namespace AEE_Plus.Infrastructure.Data.PostgreSql.Migrations
                     b.HasIndex("IdUsuario")
                         .IsUnique();
 
-                    b.ToTable("CodigosAcesso");
+                    b.ToTable("CodigoAcessoEntity");
                 });
 
             modelBuilder.Entity("AEE_Plus.Domain.Entities.CurriculoHabilidades.CurriculoHabilidadesEntity", b =>
@@ -238,67 +241,6 @@ namespace AEE_Plus.Infrastructure.Data.PostgreSql.Migrations
                     b.ToTable("ProtocolosConduta");
                 });
 
-            modelBuilder.Entity("AEE_Plus.Domain.Entities.RankingJogo.RankingJogoEntity", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<DateTime>("DataRegistro")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<long>("IdAluno")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("IdJogo")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("Pontuacao")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdAluno");
-
-                    b.HasIndex("IdJogo");
-
-                    b.ToTable("RankingsJogos");
-                });
-
-            modelBuilder.Entity("AEE_Plus.Domain.Entities.ResponsavelAluno.ResponsavelAlunoEntity", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<DateTime>("DataVinculo")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("GrauParentesco")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<long>("IdAluno")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("IdResponsavel")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdAluno");
-
-                    b.HasIndex("IdResponsavel", "IdAluno")
-                        .IsUnique();
-
-                    b.ToTable("ResponsaveisAlunos");
-                });
-
             modelBuilder.Entity("AEE_Plus.Domain.Entities.Turma.TurmaEntity", b =>
                 {
                     b.Property<long>("Id")
@@ -384,7 +326,7 @@ namespace AEE_Plus.Infrastructure.Data.PostgreSql.Migrations
             modelBuilder.Entity("AEE_Plus.Domain.Entities.CodigoAcesso.CodigoAcessoEntity", b =>
                 {
                     b.HasOne("AEE_Plus.Domain.Entities.Usuario.UsuarioEntity", "Usuario")
-                        .WithOne("CodigoAcesso")
+                        .WithOne()
                         .HasForeignKey("AEE_Plus.Domain.Entities.CodigoAcesso.CodigoAcessoEntity", "IdUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -406,7 +348,7 @@ namespace AEE_Plus.Infrastructure.Data.PostgreSql.Migrations
             modelBuilder.Entity("AEE_Plus.Domain.Entities.PAEE.PaeeEntity", b =>
                 {
                     b.HasOne("AEE_Plus.Domain.Entities.Aluno.AlunoEntity", "Aluno")
-                        .WithOne("PAEE")
+                        .WithOne()
                         .HasForeignKey("AEE_Plus.Domain.Entities.PAEE.PaeeEntity", "IdAluno")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -417,7 +359,7 @@ namespace AEE_Plus.Infrastructure.Data.PostgreSql.Migrations
             modelBuilder.Entity("AEE_Plus.Domain.Entities.PranchaComunicacao.PranchaComunicacaoEntity", b =>
                 {
                     b.HasOne("AEE_Plus.Domain.Entities.Usuario.UsuarioEntity", "Usuario")
-                        .WithOne("PranchaComunicacao")
+                        .WithOne()
                         .HasForeignKey("AEE_Plus.Domain.Entities.PranchaComunicacao.PranchaComunicacaoEntity", "IdUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -428,50 +370,12 @@ namespace AEE_Plus.Infrastructure.Data.PostgreSql.Migrations
             modelBuilder.Entity("AEE_Plus.Domain.Entities.ProtocoloConduta.ProtocoloCondutaEntity", b =>
                 {
                     b.HasOne("AEE_Plus.Domain.Entities.Aluno.AlunoEntity", "Aluno")
-                        .WithOne("ProtocoloConduta")
+                        .WithOne()
                         .HasForeignKey("AEE_Plus.Domain.Entities.ProtocoloConduta.ProtocoloCondutaEntity", "IdAluno")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Aluno");
-                });
-
-            modelBuilder.Entity("AEE_Plus.Domain.Entities.RankingJogo.RankingJogoEntity", b =>
-                {
-                    b.HasOne("AEE_Plus.Domain.Entities.Aluno.AlunoEntity", "Aluno")
-                        .WithMany("RankingsJogo")
-                        .HasForeignKey("IdAluno")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AEE_Plus.Domain.Entities.Jogo.JogoEntity", "Jogo")
-                        .WithMany("Rankings")
-                        .HasForeignKey("IdJogo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Aluno");
-
-                    b.Navigation("Jogo");
-                });
-
-            modelBuilder.Entity("AEE_Plus.Domain.Entities.ResponsavelAluno.ResponsavelAlunoEntity", b =>
-                {
-                    b.HasOne("AEE_Plus.Domain.Entities.Aluno.AlunoEntity", "Aluno")
-                        .WithMany("Responsaveis")
-                        .HasForeignKey("IdAluno")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AEE_Plus.Domain.Entities.Usuario.UsuarioEntity", "Responsavel")
-                        .WithMany("AlunosResponsaveis")
-                        .HasForeignKey("IdResponsavel")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Aluno");
-
-                    b.Navigation("Responsavel");
                 });
 
             modelBuilder.Entity("AEE_Plus.Domain.Entities.Turma.TurmaEntity", b =>
@@ -488,21 +392,6 @@ namespace AEE_Plus.Infrastructure.Data.PostgreSql.Migrations
             modelBuilder.Entity("AEE_Plus.Domain.Entities.Aluno.AlunoEntity", b =>
                 {
                     b.Navigation("CurriculoHabilidades");
-
-                    b.Navigation("PAEE")
-                        .IsRequired();
-
-                    b.Navigation("ProtocoloConduta")
-                        .IsRequired();
-
-                    b.Navigation("RankingsJogo");
-
-                    b.Navigation("Responsaveis");
-                });
-
-            modelBuilder.Entity("AEE_Plus.Domain.Entities.Jogo.JogoEntity", b =>
-                {
-                    b.Navigation("Rankings");
                 });
 
             modelBuilder.Entity("AEE_Plus.Domain.Entities.Turma.TurmaEntity", b =>
@@ -512,14 +401,6 @@ namespace AEE_Plus.Infrastructure.Data.PostgreSql.Migrations
 
             modelBuilder.Entity("AEE_Plus.Domain.Entities.Usuario.UsuarioEntity", b =>
                 {
-                    b.Navigation("AlunosResponsaveis");
-
-                    b.Navigation("CodigoAcesso")
-                        .IsRequired();
-
-                    b.Navigation("PranchaComunicacao")
-                        .IsRequired();
-
                     b.Navigation("Turmas");
                 });
 #pragma warning restore 612, 618

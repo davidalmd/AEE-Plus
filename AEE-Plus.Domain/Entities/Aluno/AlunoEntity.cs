@@ -1,4 +1,8 @@
 ﻿using AEE_Plus.Domain.Entities.CurriculoHabilidades;
+using AEE_Plus.Domain.Entities.PAEE;
+using AEE_Plus.Domain.Entities.ProtocoloConduta;
+using AEE_Plus.Domain.Entities.RankingJogo;
+using AEE_Plus.Domain.Entities.ResponsavelAluno;
 using AEE_Plus.Domain.Entities.Turma;
 using AEE_Plus.Domain.Enums;
 
@@ -17,7 +21,11 @@ public class AlunoEntity
 
     // Propriedade de Navegação
     public virtual TurmaEntity Turma { get; set; } = null!;
+    public virtual ProtocoloCondutaEntity ProtocoloConduta { get; set; } = null!;
     public virtual ICollection<CurriculoHabilidadesEntity> CurriculoHabilidades { get; set; } = new List<CurriculoHabilidadesEntity>();
+    public virtual PaeeEntity PAEE { get; set; } = null!;
+    public virtual ICollection<ResponsavelAlunoEntity> Responsaveis { get; set; } = new List<ResponsavelAlunoEntity>();
+    public virtual ICollection<RankingJogoEntity> RankingsJogo { get; set; } = new List<RankingJogoEntity>();
 
     public AlunoEntity(long id, string nome, DateTime dataNascimento, SexoAluno sexo, string CID, string nomeMae, long idTurma)
     {
