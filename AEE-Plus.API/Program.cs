@@ -1,3 +1,5 @@
+using AEE_Plus.Application.Interfaces;
+using AEE_Plus.Application.Services;
 using AEE_Plus.Domain.Interfaces;
 using AEE_Plus.Infrastructure.Data;
 using AEE_Plus.Infrastructure.Repositories;
@@ -23,6 +25,7 @@ builder.Services.AddControllers();
 
 // Registros de DI (Dependency Injection)
 builder.Services.AddScoped<IPranchaComunicacaoRepository, PranchaComunicacaoRepository>();
+builder.Services.AddScoped<IPranchaComunicacaoService, PranchaComunicacaoService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

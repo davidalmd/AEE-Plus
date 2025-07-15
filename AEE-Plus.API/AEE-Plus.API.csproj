@@ -25,8 +25,4 @@
     <ProjectReference Include="..\AEE-Plus.Infrastructure\AEE-Plus.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
