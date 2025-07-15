@@ -1,4 +1,6 @@
+using AEE_Plus.Domain.Interfaces;
 using AEE_Plus.Infrastructure.Data;
+using AEE_Plus.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +20,10 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
+
+// Registros de DI (Dependency Injection)
+builder.Services.AddScoped<IPranchaComunicacaoRepository, PranchaComunicacaoRepository>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
